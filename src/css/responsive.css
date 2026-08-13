@@ -1,0 +1,16 @@
+/* responsive.css — narrow layout + reduced motion. Extracted verbatim. */
+
+@media (max-width:860px) {
+  .mos { grid-template-columns:1fr; grid-template-rows:auto 1fr; }
+  .rail { flex-direction:row; align-items:center; padding:10px 12px; gap:10px; overflow-x:auto; }
+  .logo { padding:0 6px 0 2px; } .logo-sub { display:none; }
+  .tabs { flex-direction:row; margin-bottom:0; } .tab { white-space:nowrap; padding:8px 10px; }
+  .rail-foot { flex-direction:row; margin-left:auto; align-items:center; gap:8px; }
+  .save-note { display:none; } .backup-row { flex-shrink:0; }
+  .page { padding:24px 16px 50px; }
+  .prow-status { display:none; }
+  .bp-branches { flex-direction:column; gap:10px; align-items:center; }
+  .ws-row { flex-wrap:wrap; } .ws-name { width:auto; } .filefield { flex-basis:100%; }
+}
+
+@media (prefers-reduced-motion:reduce) { .mos * { transition:none !important; } }

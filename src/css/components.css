@@ -1,0 +1,64 @@
+/* components.css — reusable UI atoms shared across pages. */
+
+/* segmented branch bar */
+.segbar { display:flex; gap:3px; flex-shrink:0; }
+.seg { width:15px; height:7px; border-radius:2px; }
+
+/* progress track */
+.track { flex:1; height:9px; background:var(--surface-2); border-radius:20px; overflow:hidden; }
+.track-fill { height:100%; background:var(--accent); border-radius:20px; transition:width .45s cubic-bezier(.4,0,.2,1); }
+
+/* dual (O/P) mini progress rows on project list */
+.dual-row { display:flex; align-items:center; gap:7px; }
+.dual-lbl { font-size:9.5px; font-weight:700; color:var(--faint); width:10px; }
+.dual-pct { font-size:10.5px; color:var(--dim); width:30px; text-align:right; }
+.dual-off { font-size:10.5px; color:var(--faint); font-style:italic; }
+
+/* branch progress lines on tracker */
+.prog-line { display:flex; align-items:center; gap:13px; }
+.prog-lbl { display:flex; align-items:center; gap:8px; width:112px; font-size:13px; font-weight:600; flex-shrink:0; }
+.prog-tag { width:9px; height:9px; border-radius:3px; }
+.track-pct { font-size:14px; font-weight:600; width:44px; text-align:right; }
+.prog-off { flex:1; font-size:12.5px; color:var(--faint); font-style:italic; }
+
+/* branch section header + tag */
+.branch-head { display:flex; align-items:center; gap:9px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--dim); margin:0 0 8px 2px; }
+.branch-tag { width:9px; height:9px; border-radius:3px; }
+
+/* mini icon button */
+.icon-mini { display:grid; place-items:center; width:30px; height:30px; border-radius:8px; background:none; border:1px solid transparent; color:var(--faint); cursor:pointer; transition:.12s; }
+.icon-mini:hover { color:var(--text); background:var(--hover); border-color:var(--border); }
+.icon-mini.danger:hover { color:#EF4444; border-color:#EF444455; }
+
+/* text inputs */
+.add-input { flex:1; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; padding:8px 11px; font-family:inherit; font-size:14px; color:var(--text); outline:none; }
+.add-input:focus { border-color:var(--accent); }
+.rename-input { flex:1; font-size:22px; font-weight:700; letter-spacing:-0.02em; background:var(--surface-2); border:1px solid var(--accent); border-radius:8px; padding:5px 10px; font-family:inherit; color:var(--text); outline:none; }
+.confirm { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--dim); }
+
+/* segmented control (Project Type) */
+.seg-ctrl { display:inline-flex; background:var(--surface-2); border:1px solid var(--border); border-radius:9px; padding:3px; gap:2px; }
+.seg-btn { border:none; background:none; font-family:inherit; font-size:12.5px; font-weight:500; color:var(--dim); padding:6px 13px; border-radius:7px; cursor:pointer; transition:.12s; }
+.seg-btn:hover { color:var(--text); }
+.seg-btn.on { background:var(--surface); color:var(--text); font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.10); }
+
+/* workshop status button + popover menu */
+.ws-status-wrap { position:relative; flex-shrink:0; }
+.ws-status-btn { display:flex; align-items:center; gap:7px; background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:4px 9px 4px 7px; cursor:pointer; font-family:inherit; transition:.12s; width:168px; }
+.ws-status-btn:hover { background:var(--hover); }
+.ws-status-label { font-size:11.5px; font-weight:600; flex:1; text-align:left; }
+.ws-caret { color:var(--faint); flex-shrink:0; }
+.menu-backdrop { position:fixed; inset:0; z-index:30; }
+.status-menu { position:absolute; top:calc(100% + 5px); left:0; z-index:31; background:var(--surface); border:1px solid var(--border); border-radius:11px; padding:5px; box-shadow:0 14px 40px -12px rgba(0,0,0,.28); width:190px; }
+.menu-item { display:flex; align-items:center; gap:9px; width:100%; padding:7px 9px; background:none; border:none; border-radius:8px; cursor:pointer; font-family:inherit; font-size:12.5px; font-weight:500; color:var(--text); text-align:left; transition:.1s; }
+.menu-item:hover { background:var(--hover); }
+.menu-item.sel { background:var(--surface-2); }
+.menu-check { margin-left:auto; color:var(--accent); }
+
+/* file-location field */
+.filefield { display:flex; align-items:center; gap:6px; flex:1; min-width:0; background:var(--surface-2); border:1px solid transparent; border-radius:8px; padding:0 9px; transition:.12s; }
+.filefield:focus-within { border-color:var(--accent); background:var(--surface); }
+.file-ic { color:var(--faint); flex-shrink:0; }
+.file-input { flex:1; min-width:0; background:none; border:none; outline:none; padding:7px 0; font-family:inherit; font-size:12.5px; color:var(--text); }
+.file-input::placeholder { color:var(--faint); }
+.file-open { display:grid; place-items:center; color:var(--accent); flex-shrink:0; }
