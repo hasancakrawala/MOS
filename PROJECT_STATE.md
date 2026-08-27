@@ -46,17 +46,17 @@ Tersedia dan ada di repository saat ini:
 - Sintaks JS — seluruh module lolos `node --check --input-type=module` (per `MIGRATION_REPORT.md`).
 - Import graph — setiap `import` diverifikasi manual mengarah ke `export` yang ada.
 - Nilai CSS — disalin verbatim dari artifact asli.
+- Live browser run — checklist fungsional A–J (initial load & keempat view; project creation; 8-state workshop status vocabulary; file location/URL detection; Project Type toggling; theme toggle) dijalankan di browser nyata (headless Chromium, satu browser, satu isolated context). Seluruh item A–J PASS, tanpa console error atau page error.
+- Persistence round-trip — reload, Export, dan Import/restoration diuji langsung di browser pada sesi yang sama dan berhasil: seluruh status workshop, nilai file location/URL, dan Project Type dipulihkan dengan benar baik setelah reload maupun setelah siklus Export → hapus proyek → Import.
 
 ### Not Yet Validated
-- Live browser run — aplikasi belum pernah dibuka dan dijalankan di browser.
-- Behavior parity — belum ada perbandingan langsung terhadap artifact React asli.
-- Persistence round-trip — save/reload/import/export belum diuji saat runtime.
-- Cross-browser / mobile.
+- Behavior parity terhadap artifact React asli (`mos-manual-tracker.jsx`) — belum ada perbandingan side-by-side langsung terhadap artifact. Validasi browser di atas mengonfirmasi aplikasi hasil ekstraksi memenuhi checklist fitur yang didokumentasikan di repository ini, bukan kesetaraan literal dengan artifact asli.
+- Cross-browser / mobile — validasi di atas hanya dilakukan pada satu browser desktop (headless Chromium); browser lain dan perangkat mobile/touch belum diuji.
 
 ### Requires Manual Verification
-Sesuai rekomendasi `MIGRATION_REPORT.md`: serve `src/`, tambah proyek, atur beberapa status, tambah file link, reload (data harus persist), toggle Project Type, export, lalu re-import.
+Checklist yang sebelumnya direkomendasikan `MIGRATION_REPORT.md` §8 (serve `src/`, tambah proyek, atur status, tambah file link, reload, toggle Project Type, export, re-import) telah dieksekusi penuh dan lulus — lihat "Validated" di atas. Tidak ada item tersisa dari checklist tersebut. Cross-browser dan mobile verification (lihat "Not Yet Validated") masih memerlukan pengujian manual pada browser/perangkat tambahan apabila hendak dikejar di masa depan.
 
-**Sistem ini belum dinyatakan production-ready.**
+**Sistem ini masih belum dinyatakan production-ready** — baseline di atas hanya mencakup satu browser desktop; cross-browser, mobile, dan artifact-parity checks masih terbuka (lihat di atas).
 
 ## 6. Completed Work
 
@@ -76,7 +76,7 @@ No active development task.
 
 ## 8. Known Limitations
 
-- Browser validation belum dilakukan (lihat §5).
+- Cross-browser dan mobile validation belum dilakukan. Validasi browser fungsional (checklist A–J, satu browser desktop) sudah dilakukan dan PASS — lihat §5 untuk cakupan dan batasannya secara lengkap.
 - Ketergantungan pada CDN eksternal: Lucide (icons) dan Google Fonts — butuh koneksi internet, tidak di-vendor.
 - Belum ada build system (no bundler, no transpiler).
 - Belum ada package manager / `package.json` (dikonfirmasi tidak ada di root repository).
@@ -96,7 +96,7 @@ Dari `docs/MIGRATION_REPORT.md` §9:
 
 ## 10. Next Development Gate
 
-Sesuai `ROADMAP.md`: tidak ada fitur baru yang direncanakan saat ini. Langkah berikutnya yang diketahui adalah **logic refactor**, direncanakan berjalan *setelah* hasil ekstraksi ini divalidasi di browser. Refactor tersebut harus dimulai dari baseline yang sudah terverifikasi (lihat `docs/MIGRATION_REPORT.md`). Selain itu, arah pengembangan belum ditentukan.
+Sesuai `ROADMAP.md`: tidak ada fitur baru yang direncanakan saat ini. Prasyarat yang dinyatakan ROADMAP.md untuk memulai **logic refactor** — hasil ekstraksi ini divalidasi di browser — **sudah terpenuhi**: baseline browser-validation pertama (checklist A–J) telah tercatat dan PASS (lihat §5). Refactor itu sendiri **belum dimulai**; ia tetap memerlukan planning dan approval user tersendiri sesuai `docs/DEVELOPMENT_WORKFLOW.md` sebelum implementasi dimulai. Baseline yang tersedia saat ini bersifat single-browser (lihat §5 untuk cakupan dan batasannya) — belum mencakup cross-browser/mobile maupun perbandingan langsung dengan artifact asli. Selain refactor, arah pengembangan MOS masih belum ditentukan (`ROADMAP.md`).
 
 ## 11. Important Constraints
 
@@ -130,4 +130,4 @@ For the complete repository tree, see [README.md](README.md).
 
 ## 14. Last Updated
 
-2026-08-14
+2026-08-27
